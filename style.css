@@ -48,6 +48,7 @@ h1, h2, h3 {
 
 .main {
     width: 600px;
+    height: 500px;  /* set height so as to fix footer */
     float: right;
 }
 

@@ -10,18 +10,25 @@ function showDiv(divId) {
         maindivs[i].style.display = "none";
     }
 
-    // finally display the DIV whose id. was passed in
+    // display the DIV whose id. was passed in
     // by setting CSS property display:block
     var div = document.getElementById(divId);
     div.style.display = "block";
     
-    var pagelinks = document.querySelectorAll("a.pagelink");
-    for (i = 0; i < pagelinks.length; i++) {
-        if ( pagelinks[i].id===divId+'link' ) {
-            pagelinks[i].className += " selected";
+    // get a list of all anchor tag elements in div id=nav
+    var navlinks = document.querySelectorAll("#nav a");
+    
+    // loop through the nav anchor tags
+    // if the anchor tag is for the div id. we passed in, 
+    // then set its class to "selected" (so it appears in bold)
+    // else just set its class to blank
+    for (i = 0; i < navlinks.length; i++) {
+        if ( navlinks[i].id === divId + 'link' ) {
+            navlinks[i].className = "selected";
         } else {
-            pagelinks[i].className = "pagelink";
+            navlinks[i].className = "";
         }
     }
+    
     return;
 }
